@@ -1,25 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import AddProducts from './pages/Gen/AddProducts';
+import AllProducts from './pages/Gen/AllProducts';
+import Checkout from './pages/Gen/Checkout';
+import Home from './pages/Gen/Home';
+import Orders from './pages/Gen/Orders';
+import UpdateProducts from './pages/Gen/UpdateProducts';
+
+const Index = React.lazy(() => import('./pages/Gen/Index'));
+const ForgetPassword = React.lazy(() => import('./pages/auth/ForgetPassword'));
+const Signin = React.lazy(() => import('./pages/auth/Signin'));
+const Signup = React.lazy(() => import('./pages/auth/Signup'));
+const VerifyEmail = React.lazy(() => import('./pages/auth/VerifyEmail'));
+const NotFound = React.lazy(() => import('./pages/Gen/NotFound'));
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <React.Suspense fallback={<p>loading</p>}>
+        <Router>
+          <Routes>
+            <Route path='/' element={<Index />}>
+              <Route path='/' element={<Home />} />
+              <Route path='/orders' element={<Orders />} />
+              <Route path='/orders/:oId' element={<Orders />} />
+              <Route path='/add/new/product' element={<AddProducts />} />
+              <Route path='/all/product' element={<AllProducts />} />
+              <Route path='/update/product' element={<UpdateProducts />} />
+              <Route path='/cart' element={<UpdateProducts />} />
+              <Route path='/new/checout/product' element={<Checkout />} />
+            </Route>
+            <Route path='/auth/signin' element={<Signin />} />
+            <Route path='/auth/signup' element={<Signup />} />
+            <Route path='/auth/forgetpassword' element={<ForgetPassword />} />
+            <Route path='/auth/verify/user/email/:userdetails' element={<VerifyEmail />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </Router>
+      </React.Suspense>
+    </React.Fragment>
   );
 }
 
