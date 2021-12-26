@@ -5,3 +5,6 @@
 * {
   font-family: "Roboto", sans-serif;
 }
+.navActive {
+  @apply text-blue-500 border-b border-blue-500;
+}
