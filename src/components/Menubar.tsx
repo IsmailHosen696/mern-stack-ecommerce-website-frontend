@@ -6,24 +6,24 @@ import { Actions } from "../types";
 export default function Menubar() {
     const { dispatch } = useDashboard()
     return (
-        <div className="w-full flex items-center justify-center h-full bg-gray-50 transition-all duration-150 z-50 absolute top-0">
+        <div className="w-full flex items-center justify-center h-full overflow-hidden bg-gray-50 transition-all duration-150 z-50 fixed top-0">
             <div className="w-full h-full relative flex items-center justify-center">
-                <button onClick={() => dispatch({ type: Actions.TOOGLE_MENUBAR })} className="w-8 h-8 cursor-default sm:cursor-pointer rounded-full hover:bg-gray-100 flex justify-center items-center absolute top-5 right-5 sm:right-10"><XIcon className="w-6 h-6" /></button>
+                <button onClick={() => dispatch({ type: Actions.TOOGLE_MENUBAR })} className="w-8 h-8 setCursor rounded-full hover:bg-gray-100 flex justify-center items-center absolute top-5 right-5 sm:right-10"><XIcon className="w-6 h-6" /></button>
                 <ul className="flex gap-5 flex-col px-5">
                     <li>
-                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 cursor-default sm:cursor-pointer `} to='/admin/dashboard'><ViewGridIcon className="w-5 h-5" /> Dashboard</NavLink>
+                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 setCursor `} to='/admin/dashboard'><ViewGridIcon className="w-5 h-5" /> Dashboard</NavLink>
                     </li>
                     <li>
-                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 cursor-default sm:cursor-pointer `} to='/all/products'><CubeIcon className="w-5 h-5" /> Products</NavLink>
+                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 setCursor `} to='/all/products'><CubeIcon className="w-5 h-5" /> Products</NavLink>
                     </li>
                     <li>
-                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 cursor-default sm:cursor-pointer `} to='/cart'><ShoppingCartIcon className="w-5 h-5" />Cart</NavLink>
+                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 setCursor `} to='/cart'><ShoppingCartIcon className="w-5 h-5" />Cart</NavLink>
                     </li>
                     <li>
-                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 cursor-default sm:cursor-pointer `} to='/orders'><InboxIcon className="w-5 h-5" />Orders</NavLink>
+                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 setCursor `} to='/orders'><InboxIcon className="w-5 h-5" />Orders</NavLink>
                     </li>
                     <li>
-                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 cursor-default sm:cursor-pointer `} to='/auth/signin'><LoginIcon className="w-5 h-5" />Signin</NavLink>
+                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 setCursor `} to='/auth/signin'><LoginIcon className="w-5 h-5" />Signin</NavLink>
                     </li>
                 </ul>
             </div>

@@ -10,5 +10,5 @@ export type usertype = {
     email: string
     photoURL: string
     isEmailVerfied: boolean
-    rool: "admin" | "user"
+    role: "admin" | "user"
 } | null

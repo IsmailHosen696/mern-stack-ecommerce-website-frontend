@@ -8,3 +8,15 @@
 .navActive {
   @apply text-blue-500 border-b border-blue-500;
 }
+.setCursor {
+  @apply cursor-default sm:cursor-pointer;
+}
+.banner-img {
+  height: 45vh;
+  object-fit: contain;
+}
+@media screen and (max-width: 850px) {
+  .banner-img {
+    height: 30vh;
+  }
+}
