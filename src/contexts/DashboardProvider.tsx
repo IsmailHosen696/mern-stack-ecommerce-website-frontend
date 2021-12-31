@@ -3,7 +3,7 @@ import { Actions, usertype } from "../types";
 
 export type DashboardContextStateType = {
     isMenubarOpen: boolean,
-    user: usertype
+    user: usertype | null
 }
 
 export const DashboardContext = createContext<{
@@ -25,14 +25,14 @@ type UPDATEUSER = {
     user: usertype
 }
 
-type REMOVEUSER = {
-    type: Actions.REMOVE_USER
-    user: usertype
+type LOGOUTUSER = {
+    type: Actions.LOGOUT_USER
+    user: null
 }
 
 type DashboardContextActionType = ToogleMenuBarOpen
     | SETUSER
-    | REMOVEUSER
+    | LOGOUTUSER
     | UPDATEUSER
 
 export const reducer = (
@@ -46,7 +46,7 @@ export const reducer = (
             return { ...state, user: action.user };
         case Actions.UPDATE_USER:
             return { ...state, user: action.user };
-        case Actions.REMOVE_USER:
+        case Actions.LOGOUT_USER:
             return { ...state, user: null };
         default:
             return state;

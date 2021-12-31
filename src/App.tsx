@@ -7,7 +7,6 @@ import Orders from './pages/Gen/Orders';
 import { AddProduct, UpdateProduct } from './pages/dashboard';
 
 const Index = React.lazy(() => import('./pages/Gen/Index'));
-const ForgetPassword = React.lazy(() => import('./pages/auth/ForgetPassword'));
 const Signin = React.lazy(() => import('./pages/auth/Signin'));
 const NotFound = React.lazy(() => import('./pages/Gen/NotFound'));
 
@@ -28,7 +27,6 @@ function App() {
               <Route path='/new/checout/product' element={<Checkout />} />
             </Route>
             <Route path='/auth/signin' element={<Signin />} />
-            <Route path='/auth/forgetpassword' element={<ForgetPassword />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </Router>

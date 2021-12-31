@@ -12,8 +12,9 @@
   @apply cursor-default sm:cursor-pointer;
 }
 .banner-img {
-  height: 45vh;
-  object-fit: contain;
+  height: 50vh;
+  object-fit: cover;
+  width: 100%;
 }
 @media screen and (max-width: 850px) {
   .banner-img {

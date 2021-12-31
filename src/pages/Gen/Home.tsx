@@ -7,7 +7,7 @@ export default function Home() {
             <div className="w-full flex flex-col items-center justify-center sm:px-5 max-w-screen-2xl">
                 <Banner />
                 <div className="py-5 w-full flex flex-col items-center">
-                    <h1 className="text-2xl font-medium py-5 ">All Categories</h1>
+                    <h1 className="text-2xl font-medium py-5 ">Categories</h1>
                     <Categories />
                 </div>
                 <div className="flex items-center flex-col">
