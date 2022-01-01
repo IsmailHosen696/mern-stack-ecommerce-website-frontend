@@ -1,9 +1,9 @@
 import { CubeIcon, InboxIcon, LoginIcon, LogoutIcon, ShoppingCartIcon, UserIcon, ViewGridIcon, XIcon } from "@heroicons/react/outline";
 import { signOut } from "firebase/auth";
 import { NavLink } from "react-router-dom";
-import { useDashboard } from "../contexts/DashboardProvider";
-import { auth } from "../db/firebase";
-import { Actions } from "../types";
+import { useDashboard } from "../../contexts/DashboardProvider";
+import { auth } from "../../db/firebase";
+import { Actions } from "../../types";
 
 export default function Menubar() {
     const { dispatch, state: { user } } = useDashboard();
@@ -17,7 +17,7 @@ export default function Menubar() {
                 <button onClick={() => dispatch({ type: Actions.TOOGLE_MENUBAR })} className="w-8 h-8 setCursor rounded-full hover:bg-gray-100 flex justify-center items-center absolute top-5 right-5 sm:right-10"><XIcon className="w-6 h-6" /></button>
                 <ul className="flex gap-5 flex-col px-5">
                     {
-                        user?.role === 'admin' &&
+                        (user && user.role === 'admin') &&
                         <li>
                             <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} flex items-center gap-1 setCursor `} to='/admin/dashboard'><ViewGridIcon className="w-5 h-5" /> Dashboard</NavLink>
                         </li>

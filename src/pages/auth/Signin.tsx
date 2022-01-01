@@ -17,7 +17,7 @@ export default function Signin() {
         setError('')
         await signInWithPopup(auth, provider).then((data) => {
             findUserFromFirebase(data.user.uid).then((rData) => {
-                if (rData.length > 1) {
+                if (rData.length > 0) {
                     let user = rData[0] as usertype;
                     let payload: usertype = {
                         uid: user.uid,
@@ -38,8 +38,8 @@ export default function Signin() {
                         role: "user"
                     }
                     setUserIntoFirebase(payload).then(() => {
-                        dispatch({ type: Actions.SET_USER, user: payload })
                         setLoading(false);
+                        dispatch({ type: Actions.SET_USER, user: payload })
                         navigate('/');
                     }).catch((err: FirebaseError) => {
                         setLoading(false);

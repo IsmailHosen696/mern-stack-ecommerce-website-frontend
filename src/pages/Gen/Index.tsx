@@ -2,7 +2,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { Fragment, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { findUserFromFirebase } from "../../api";
-import { Menubar, Navbar } from "../../components";
+import { Menubar, Navbar } from "../../components/gen";
 import { useDashboard } from "../../contexts/DashboardProvider";
 import { auth } from "../../db/firebase";
 import { Actions, usertype } from "../../types";

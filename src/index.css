@@ -16,6 +16,12 @@
   object-fit: cover;
   width: 100%;
 }
+.admin-sidebar-link {
+  @apply rounded-md w-full pl-4 py-2;
+}
+.active-admin-sidebar-link {
+  @apply bg-indigo-500 text-white;
+}
 @media screen and (max-width: 850px) {
   .banner-img {
     height: 30vh;

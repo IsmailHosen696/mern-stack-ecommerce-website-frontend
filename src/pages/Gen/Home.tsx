@@ -1,5 +1,5 @@
-import Banner from "../../components/Banner";
-import Categories from "../../components/Categories";
+import Banner from "../../components/gen/Banner";
+import Categories from "../../components/gen/Categories";
 
 export default function Home() {
     return (
