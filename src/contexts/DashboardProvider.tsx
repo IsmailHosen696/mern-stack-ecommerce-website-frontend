@@ -69,7 +69,7 @@ export default function DashboardProvider({ children }: { children: JSX.Element 
 export const useDashboard = () => {
     const context = useContext(DashboardContext);
     if (!context) {
-        throw new Error("Context not working!");
+        throw new Error("problem on context");
     }
     return context;
 };

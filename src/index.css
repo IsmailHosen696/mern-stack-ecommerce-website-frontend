@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 * {
-  font-family: "Roboto", sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 .navActive {
   @apply text-blue-500 border-b border-blue-500;
@@ -21,6 +21,9 @@
 }
 .active-admin-sidebar-link {
   @apply bg-indigo-500 text-white;
+}
+.menuclass {
+  @apply hover:text-green-600 transition-all duration-200 flex items-center gap-1 uppercase font-semibold;
 }
 @media screen and (max-width: 850px) {
   .banner-img {

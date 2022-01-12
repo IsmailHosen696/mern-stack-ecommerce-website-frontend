@@ -1,3 +1,4 @@
 import Navbar from "./Navbar";
 import Menubar from "./Menubar";
-export { Navbar, Menubar };
+import SecondNav from "./SecondNav";
+export { Navbar, Menubar, SecondNav };

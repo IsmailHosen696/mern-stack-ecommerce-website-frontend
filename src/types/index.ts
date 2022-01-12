@@ -1,3 +1,5 @@
+import { ComponentProps } from "react"
+
 export enum Actions {
     TOOGLE_MENUBAR = 'toogle-menubar',
     SET_USER = 'set-user',
@@ -10,4 +12,9 @@ export type usertype = {
     email: string | null
     photoURL: string | null
     role: "admin" | "user"
+}
+export type linkType = {
+    name: string,
+    Icon: (props: ComponentProps<"svg">) => JSX.Element,
+    to: string
 }
