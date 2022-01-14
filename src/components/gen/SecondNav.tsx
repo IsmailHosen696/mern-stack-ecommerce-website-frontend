@@ -1,12 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
-    CubeIcon,
-    InboxIcon,
-    LoginIcon,
-    LogoutIcon,
-    ShoppingCartIcon,
-    UserIcon,
-    ViewGridIcon,
+    QuestionMarkCircleIcon,
 } from "@heroicons/react/outline";
 
 import { NavLink } from "react-router-dom";
@@ -15,36 +9,31 @@ import { linkType } from "../../types";
 
 export const links: linkType[] = [
     {
+        name: "Home",
+        to: "/"
+    },
+    {
         name: "Dashboard",
-        Icon: ViewGridIcon,
         to: "/admin/dashboard"
     },
     {
         name: "Products",
-        Icon: CubeIcon,
         to: "/all/products"
     },
     {
         name: "Cart",
-        Icon: ShoppingCartIcon,
         to: "/cart"
     },
     {
         name: "Orders",
-        Icon: InboxIcon,
         to: "/orders"
     },
     {
         name: "Profile",
-        Icon: UserIcon,
         to: "/profile"
     },
-    {
-        name: "Login",
-        Icon: LoginIcon,
-        to: "/auth/signin"
-    },
 ]
+
 export default function SecondNav() {
     const { state: { user } } = useDashboard();
     const [isStickyBarActive, setIsStickyBarActive] = useState(false);
@@ -67,39 +56,30 @@ export default function SecondNav() {
     }, []);
 
     return (
-        <div className={`${isStickyBarActive ? "sticky top-0 left-0 z-40" : "static"} py-2 w-full bg-black`}>
-            <div className="w-full max-w-screen-2xl mx-auto">
-                <ul className="flex w-full items-start sm:items-end justify-between py-2 gap-5 text-gray-100 px-5">
+        <div className={`${isStickyBarActive ? "sticky top-0 left-0 z-40" : "static"} md:flex hidden py-2 w-full bg-black`}>
+            <div className="w-full flex items-center justify-between max-w-screen-2xl mx-auto py-2 px-5">
+                <ul className="flex items-start md:items-end justify-between gap-5 text-gray-200">
                     {
-                        links.map(({ to, name, Icon }, i) =>
-                            <li key={i}>
-                                {name === "Login" ?
-                                    user ?
-                                        <button className="menuclass setCursor">
-                                            {<LogoutIcon className="w-5 h-5" />}
-                                            Logout
-                                        </button>
-                                        :
-                                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} menuclass setCursor `} to={`${to}`}>
-                                            {<Icon className="w-5 h-5" />}
-                                            {name}
-                                        </NavLink>
-                                    :
-                                    user ?
-                                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} ${(name === "Dashboard" && user?.role === "admin") ? "block" : "hidden"}`} to={`${to}`}>
-                                            {<Icon className="w-5 h-5" />}
-                                            {name}
-                                        </NavLink>
-                                        :
-                                        <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} ${name === "Dashboard" ? "block" : "hidden"} menuclass setCursor `} to={`${to}`}>
-                                            {<Icon className="w-5 h-5" />}
-                                            {name}
-                                        </NavLink>
-                                }
-                            </li>
+                        links.map(({ to, name }, i) =>
+                            user ?
+                                <li key={i} className={`${(name === "Dashboard" && user.role === "admin") ? "block" : "hidden"}`}>
+                                    <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} `} to={`${to}`}>
+                                        {name}
+                                    </NavLink>
+                                </li> :
+                                <li key={i} className={`${name === "Dashboard" ? "hidden" : "block"} `}>
+                                    <NavLink className={(pos) => `${pos.isActive ? "navActive" : ""} menuclass setCursor `} to={`${name === "Profile" && !user ? "/auth/signin" : to}`}>
+                                        {name}
+                                    </NavLink>
+                                </li>
+
                         )
                     }
                 </ul>
+                <div className='flex items-center'>
+                    <QuestionMarkCircleIcon className='text-gray-300 mr-2 w-6 h-6' />
+                    <h1 className='text-gray-200'>+8801234567890</h1>
+                </div>
             </div>
         </div>
     )

@@ -6,7 +6,7 @@
   font-family: "Nunito", sans-serif;
 }
 .navActive {
-  @apply text-blue-500 border-b border-blue-500;
+  @apply text-green-500;
 }
 .setCursor {
   @apply cursor-default sm:cursor-pointer;
@@ -23,7 +23,7 @@
   @apply bg-indigo-500 text-white;
 }
 .menuclass {
-  @apply hover:text-green-600 transition-all duration-200 flex items-center gap-1 uppercase font-semibold;
+  @apply hover:text-green-600 transition-all duration-200 flex items-center gap-1 font-semibold;
 }
 @media screen and (max-width: 850px) {
   .banner-img {

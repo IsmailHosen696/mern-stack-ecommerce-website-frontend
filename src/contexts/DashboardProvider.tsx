@@ -3,7 +3,8 @@ import { Actions, usertype } from "../types";
 
 export type DashboardContextStateType = {
     isMenubarOpen: boolean,
-    user: usertype | null
+    user: usertype | null,
+    isSearchBarOpen: boolean
 }
 
 export const DashboardContext = createContext<{
@@ -13,6 +14,10 @@ export const DashboardContext = createContext<{
 
 type ToogleMenuBarOpen = {
     type: Actions.TOOGLE_MENUBAR
+}
+type ToogleSearchBarOpen = {
+    type: Actions.TOOGLE_SEARCHBAR
+    value: boolean
 }
 
 type SETUSER = {
@@ -34,6 +39,7 @@ type DashboardContextActionType = ToogleMenuBarOpen
     | SETUSER
     | LOGOUTUSER
     | UPDATEUSER
+    | ToogleSearchBarOpen
 
 export const reducer = (
     state: DashboardContextStateType,
@@ -42,6 +48,8 @@ export const reducer = (
     switch (action.type) {
         case Actions.TOOGLE_MENUBAR:
             return { ...state, isMenubarOpen: !state.isMenubarOpen };
+        case Actions.TOOGLE_SEARCHBAR:
+            return { ...state, isSearchBarOpen: action.value };
         case Actions.SET_USER:
             return { ...state, user: action.user };
         case Actions.UPDATE_USER:
@@ -56,7 +64,8 @@ export const reducer = (
 export default function DashboardProvider({ children }: { children: JSX.Element }) {
     const [state, dispatch] = useReducer(reducer, {
         isMenubarOpen: false,
-        user: null
+        user: null,
+        isSearchBarOpen: false
     } as DashboardContextStateType);
 
     return (
