@@ -1,12 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useDashboard } from "../../contexts/DashboardProvider"
-import { Actions, usertype } from "../../types"
+// import { useNavigate } from "react-router-dom";
 
 export default function Signin() {
-    const navigate = useNavigate();
-    const { dispatch } = useDashboard();
-    const [loading, setLoading] = useState<boolean>(false);
+    // const navigate = useNavigate();
+    // const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('')
 
     return (

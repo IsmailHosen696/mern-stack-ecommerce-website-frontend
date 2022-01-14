@@ -13,7 +13,7 @@ export default function Index() {
         window.addEventListener("resize", () => {
             dispatch({ type: Actions.TOOGLE_SEARCHBAR, value: false });
         })
-    })
+    });
 
     return (
         <Fragment>

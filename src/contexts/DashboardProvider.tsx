@@ -1,9 +1,8 @@
 import { createContext, Dispatch, useContext, useReducer } from "react";
-import { Actions, usertype } from "../types";
+import { Actions } from "../types";
 
 export type DashboardContextStateType = {
     isMenubarOpen: boolean,
-    user: usertype | null,
     isSearchBarOpen: boolean
 }
 
@@ -20,25 +19,8 @@ type ToogleSearchBarOpen = {
     value: boolean
 }
 
-type SETUSER = {
-    type: Actions.SET_USER
-    user: usertype
-}
-
-type UPDATEUSER = {
-    type: Actions.UPDATE_USER
-    user: usertype
-}
-
-type LOGOUTUSER = {
-    type: Actions.LOGOUT_USER
-    user: null
-}
 
 type DashboardContextActionType = ToogleMenuBarOpen
-    | SETUSER
-    | LOGOUTUSER
-    | UPDATEUSER
     | ToogleSearchBarOpen
 
 export const reducer = (
@@ -50,12 +32,6 @@ export const reducer = (
             return { ...state, isMenubarOpen: !state.isMenubarOpen };
         case Actions.TOOGLE_SEARCHBAR:
             return { ...state, isSearchBarOpen: action.value };
-        case Actions.SET_USER:
-            return { ...state, user: action.user };
-        case Actions.UPDATE_USER:
-            return { ...state, user: action.user };
-        case Actions.LOGOUT_USER:
-            return { ...state, user: null };
         default:
             return state;
     }

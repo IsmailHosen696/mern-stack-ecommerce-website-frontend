@@ -2,7 +2,7 @@ import { linkType } from "../../types"
 import { HomeIcon, DocumentIcon, CubeTransparentIcon, ViewGridIcon } from '@heroicons/react/outline';
 import { UserIcon } from '@heroicons/react/solid';
 import { NavLink } from "react-router-dom";
-import { useDashboard } from "../../contexts/DashboardProvider";
+import { useAppSelector } from "../../redux/store";
 
 export const bottombarlinks: linkType[] = [
     {
@@ -32,7 +32,7 @@ export const bottombarlinks: linkType[] = [
     },
 ]
 export default function BottomBar() {
-    const { state: { user } } = useDashboard();
+    const { user } = useAppSelector((state) => state.storeslice);
     return (
         <div className="w-full items-center justify-center md:hidden flex px-5 h-16 border-t py-2 bg-white fixed bottom-0">
             <div className="flex items-center justify-between w-full">

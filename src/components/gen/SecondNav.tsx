@@ -4,8 +4,8 @@ import {
 } from "@heroicons/react/outline";
 
 import { NavLink } from "react-router-dom";
-import { useDashboard } from "../../contexts/DashboardProvider";
 import { linkType } from "../../types";
+import { useAppSelector } from '../../redux/store';
 
 export const links: linkType[] = [
     {
@@ -35,8 +35,9 @@ export const links: linkType[] = [
 ]
 
 export default function SecondNav() {
-    const { state: { user } } = useDashboard();
     const [isStickyBarActive, setIsStickyBarActive] = useState(false);
+
+    const { user } = useAppSelector((state) => state.storeslice);
 
     const handleScroll = () => {
         const position = window.pageYOffset;

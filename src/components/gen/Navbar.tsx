@@ -2,9 +2,13 @@ import { Link, NavLink } from "react-router-dom";
 import { MenuIcon, SearchIcon, ShoppingBagIcon, UserCircleIcon } from '@heroicons/react/outline'
 import { useDashboard } from "../../contexts/DashboardProvider";
 import { Actions } from "../../types";
+import { useAppSelector } from "../../redux/store";
 
 export default function Navbar() {
     const { dispatch, state: { isSearchBarOpen } } = useDashboard();
+
+    const { user } = useAppSelector((state) => state.storeslice);
+
     return (
         <div className="w-full bg-white py-5 flex md:static border-b md:border-transparent border-gray-200 sticky md:z-auto z-40 top-0">
             <div className="m-auto w-full flex px-5 md:grid grid-cols-5 justify-between items-center gap-4 max-w-screen-2xl">
@@ -21,13 +25,16 @@ export default function Navbar() {
                     <button className="bg-green-400 transition-all duration-200 hover:bg-gray-800 flex w-12 text-white h-full items-center justify-center rounded-r-md"><SearchIcon className="w-6 h-6" /></button>
                 </div>
                 <div className="flex flex-row col-span-1 items-center w-full justify-end gap-3">
-                    <button className="md:flex items-center hidden">
+                    {!user ? <button className="md:flex items-center hidden">
                         <UserCircleIcon className="w-8 h-8" />
                         <span className="flex flex-col">
                             <span className="leading-3 font-medium">Register</span>
                             <span className="leading-5 font-medium">Or Login</span>
                         </span>
                     </button>
+                        :
+                        <p>{user.displayName}</p>
+                    }
                     <NavLink to='/cart' className={(pos) => `${pos.isActive ? "navActive" : ""} flex relative setCursor items-center`}>
                         <ShoppingBagIcon className="md:w-9 md:h-9 w-7 h-7" />
                         <span className="rounded-full w-5 h-5 flex items-center justify-center bg-green-500 text-white absolute md:bottom-0 -bottom-2 md:right-0 -right-2 text-xs">5</span>
