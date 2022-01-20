@@ -17,9 +17,9 @@ export default function Banner() {
     const handleNextBanner = () => count >= bannerData.length - 1 ? setCount(0) : setCount(prevCount => prevCount + 1)
     const handlePreviousBanner = () => count <= 0 ? setCount(bannerData.length - 1) : setCount(prevCount => prevCount - 1)
     return (
-        <div className="w-full flex items-center shadow justify-center overflow-hidden h-full relative" style={{ maxHeight: "60vh" }}>
+        <div className=" flex items-center shadow justify-center overflow-hidden relative banner-img">
             <button onClick={handlePreviousBanner} style={{ top: "50%" }} className="absolute w-7 h-7 bg-gray-100 text-gray-500 flex justify-center items-center rounded z-30 setCursor left-5"><ArrowSmLeftIcon className="w-5 h-5" /></button>
-            <img src={bannerData[count].src} alt="banner_image" className="banner-img" />
+            <img src={bannerData[count].src} alt="banner_image" className="h-full object-cover w-full" />
             <button onClick={handleNextBanner} style={{ top: "50%" }} className="absolute z-30 w-7 h-7 bg-gray-100 text-gray-500 flex justify-center items-center rounded setCursor right-5"><ArrowSmRightIcon className="w-5 h-5" /></button>
         </div>
     )

@@ -41,7 +41,7 @@ export default function SecondNav() {
 
     const handleScroll = () => {
         const position = window.pageYOffset;
-        if (position > 100) {
+        if (position > 85) {
             setIsStickyBarActive(true);
         } else {
             setIsStickyBarActive(false);
@@ -50,7 +50,6 @@ export default function SecondNav() {
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
-
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };

@@ -9,21 +9,20 @@
   @apply text-green-500;
 }
 .setCursor {
-  @apply cursor-default sm:cursor-pointer;
+  @apply cursor-default md:cursor-pointer;
 }
 .banner-img {
-  height: 50vh;
-  object-fit: cover;
+  height: 60vh;
   width: 100%;
 }
 .admin-sidebar-link {
   @apply rounded-md w-full pl-4 py-2;
 }
 .active-admin-sidebar-link {
-  @apply bg-indigo-500 text-white;
+  @apply bg-green-500 text-white;
 }
 .menuclass {
-  @apply hover:text-green-600 transition-all duration-200 flex items-center gap-1 font-semibold;
+  @apply hover:text-green-500 transition-all duration-200 flex items-center gap-1 font-semibold;
 }
 @media screen and (max-width: 850px) {
   .banner-img {

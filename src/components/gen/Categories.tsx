@@ -31,7 +31,7 @@ export default function Categories() {
                 catagories.map((item, i) =>
                     <button key={i} className="flex p-5 rounded m-5 items-center group setCursor justify-center w-32 border border-gray-300 flex-col">
                         <img src={item.imgSrc} className="w-16 h-16" alt="image_item" />
-                        <span className="font-medium pt-2 group-hover:text-blue-500 transition-all duration-200">{item.name}</span>
+                        <span className="font-medium pt-2 group-hover:text-green-500 transition-all duration-200">{item.name}</span>
                     </button>
                 )
             }
