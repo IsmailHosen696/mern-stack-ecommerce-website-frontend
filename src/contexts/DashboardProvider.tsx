@@ -40,7 +40,6 @@ export const reducer = (
 export default function DashboardProvider({ children }: { children: JSX.Element }) {
     const [state, dispatch] = useReducer(reducer, {
         isMenubarOpen: false,
-        user: null,
         isSearchBarOpen: false
     } as DashboardContextStateType);
 

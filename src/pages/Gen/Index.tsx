@@ -26,7 +26,7 @@ export default function Index() {
             <Navbar />
             <SecondNav />
             <BottomBar />
-            <div className="mb-20">
+            <div className="sm:mb-0 mb-20">
                 <Outlet />
             </div>
         </Fragment>

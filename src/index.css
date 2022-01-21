@@ -9,7 +9,7 @@
   @apply text-green-500;
 }
 .setCursor {
-  @apply cursor-default md:cursor-pointer;
+  @apply cursor-default lg:cursor-pointer;
 }
 .banner-img {
   height: 60vh;

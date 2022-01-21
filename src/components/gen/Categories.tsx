@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const catagories = [
     {
         name: "Laptop",
@@ -26,13 +28,13 @@ export const catagories = [
 ]
 export default function Categories() {
     return (
-        <div className="sm:grid w-full items-center justify-center sm:grid-cols-3 max-w-lg flex flex-wrap">
+        <div className="flex flex-col gap-3 items-start">
             {
                 catagories.map((item, i) =>
-                    <button key={i} className="flex p-5 rounded m-5 items-center group setCursor justify-center w-32 border border-gray-300 flex-col">
-                        <img src={item.imgSrc} className="w-16 h-16" alt="image_item" />
-                        <span className="font-medium pt-2 group-hover:text-green-500 transition-all duration-200">{item.name}</span>
-                    </button>
+                    <Link to='#' key={i} className="setCursor hover:bg-green-500 transition-all duration-200 hover:text-white p-2 w-full items-center gap-3 flex">
+                        <img src={item.imgSrc} alt="item_image" className="w-8 h-8" />
+                        <span>{item.name}</span>
+                    </Link>
                 )
             }
         </div>
