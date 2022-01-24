@@ -31,9 +31,9 @@ export default function Categories() {
         <div className="flex flex-col gap-3 items-start">
             {
                 catagories.map((item, i) =>
-                    <Link to='#' key={i} className="setCursor hover:bg-green-500 transition-all duration-200 hover:text-white p-2 w-full items-center gap-3 flex">
+                    <Link to='#' key={i} className="setCursor hover:text-green-500 group p-2 w-full items-center gap-3 flex">
                         <img src={item.imgSrc} alt="item_image" className="w-8 h-8" />
-                        <span>{item.name}</span>
+                        <span className="transform group-hover:translate-x-2 transition-all duration-200">{item.name}</span>
                     </Link>
                 )
             }

@@ -16,3 +16,15 @@ export type linkType = {
     to: string
     Icon?: (props: ComponentProps<"svg">) => JSX.Element
 }
+
+export type itemType = {
+    id: string,
+    name: string;
+    price: number;
+    img: string;
+    tags?: string[];
+    avilableOnStock: number;
+    inStock: boolean;
+    category: string;
+    type?: string;
+}
